@@ -1,0 +1,19 @@
+# Kafka Consumer Test SpringBoot
+Aplicação básica de um consumidor de tópico 'test' do Kafka.
+
+## Pre-requisitos:
+ 1. Fazer download do kafka (https://www.apache.org/dyn/closer.cgi?path=/kafka/2.1.0/kafka_2.11-2.1.0.tgz) 
+ 2. Startar servidor ZooKeeper (na pasta descompactada do kafka):
+    > bin/zookeeper-server-start.sh config/zookeeper.properties
+ 3. Startar servidor do Kafka:
+    > bin/kafka-server-start.sh config/server.properties
+ 4. Criar um tópico:
+    > bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+ 4.1 Verificar listando os topicos:
+    > bin/kafka-topics.sh --list --zookeeper localhost:2181
+ 5. Enviar mensagens para o tópico 'test':
+    > bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test
+
+### Instruções:
+Faça o passo de startar o servidor Kafka e criar o tópico. Em seguida, rode a aplicação (para acompanhar, rode em debug e coloque breakpoints no MainKafkaLister e no TestListenerImpl) e faça o passo de enviar mensagem para o tópico 'test'.
+
